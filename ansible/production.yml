@@ -1,0 +1,12 @@
+---
+
+- hosts: adama-prod-test.taoteg.com
+  roles:
+    - common
+    - { role: python27, when: ansible_os_family == "RedHat" }
+    - developer_station
+    - rabbit_server
+    - docker
+    - { role: adama_server, branch: master }
+    - redis_server
+    - nginx
